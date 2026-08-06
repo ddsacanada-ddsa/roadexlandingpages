@@ -1,10 +1,9 @@
-// Add the public Google Form URL here when the Roadex waitlist is ready.
-const WAITLIST_URL = "";
+const WAITLIST_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeCvpvAKjMLf7wb1W8EjqXW50MxvFbeFoth-qyaE__SoUPwaA/viewform?usp=publish-editor";
 
 const header = document.querySelector("[data-header]");
 const menuToggle = document.querySelector("[data-menu-toggle]");
 const menu = document.querySelector("[data-menu]");
-const waitlistLink = document.querySelector("[data-waitlist-link]");
+const waitlistLinks = document.querySelectorAll("[data-waitlist-link]");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const updateHeader = () => header?.classList.toggle("scrolled", window.scrollY > 20);
@@ -30,14 +29,15 @@ document.querySelectorAll("[data-year]").forEach((node) => {
   node.textContent = String(new Date().getFullYear());
 });
 
-if (waitlistLink && WAITLIST_URL) {
-  waitlistLink.href = WAITLIST_URL;
-  waitlistLink.removeAttribute("aria-disabled");
-  waitlistLink.firstChild.textContent = "Join the Roadex waitlist ";
-  waitlistLink.target = "_blank";
-  waitlistLink.rel = "noopener noreferrer";
+if (WAITLIST_URL) {
+  waitlistLinks.forEach((link) => {
+    link.href = WAITLIST_URL;
+    link.removeAttribute("aria-disabled");
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+  });
 } else {
-  waitlistLink?.addEventListener("click", (event) => event.preventDefault());
+  waitlistLinks.forEach((link) => link.addEventListener("click", (event) => event.preventDefault()));
 }
 
 const revealElements = document.querySelectorAll(".reveal");
