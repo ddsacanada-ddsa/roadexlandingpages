@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#07070b" />
+    <meta name="description" content="Share feedback with the Roadex team and privately track our reply." />
+    <title>Roadex Feedback</title>
+    <link rel="icon" type="image/png" href="assets/roadex-logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="feedback.css" />
+    <script src="feedback.js" defer></script>
+  </head>
+  <body class="feedback-body">
+    <main class="feedback-shell">
+      <header class="feedback-header">
+        <a class="wordmark" href="/" aria-label="Roadex home"><img class="wordmark-logo" src="assets/roadex-logo.png" alt="" width="40" height="40" /><span>Roadex</span></a>
+        <span class="feedback-chip"><i></i>Tester channel</span>
+      </header>
+
+      <section class="feedback-hero">
+        <p class="eyebrow"><span></span>Help shape the garage</p>
+        <h1>Tell us what should <em>drive next.</em></h1>
+        <p>Found a bug? Have a feature idea? Send it directly to the Roadex team. Your conversation stays private and you can return anytime to see our reply.</p>
+      </section>
+
+      <section class="feedback-panel">
+        <div class="feedback-tabs" role="tablist" aria-label="Feedback actions">
+          <button class="feedback-tab is-active" type="button" data-feedback-tab="send" role="tab" aria-selected="true">Send feedback</button>
+          <button class="feedback-tab" type="button" data-feedback-tab="track" role="tab" aria-selected="false">Check reply</button>
+        </div>
+
+        <div data-feedback-view="send">
+          <form class="feedback-form" data-feedback-form>
+            <div class="field-grid">
+              <label><span>Your name</span><input name="displayName" maxlength="80" autocomplete="name" placeholder="How should we address you?" /></label>
+              <label><span>Email <small>optional</small></span><input name="email" maxlength="200" type="email" autocomplete="email" placeholder="For follow-up only" /></label>
+            </div>
+            <label><span>What is this about?</span><select name="category" required><option value="idea">Feature idea</option><option value="bug">Bug or crash</option><option value="recognition">Car identification</option><option value="challenge">Challenges</option><option value="other">Something else</option></select></label>
+            <label><span>Your feedback</span><textarea name="message" minlength="10" maxlength="3000" required placeholder="Tell us what happened, what you expected, or what would make Roadex better."></textarea></label>
+            <label class="feedback-honeypot" aria-hidden="true"><span>Website</span><input name="website" tabindex="-1" autocomplete="off" /></label>
+            <button class="feedback-submit" type="submit"><span>Send to Roadex</span><b>↗</b></button>
+            <p class="form-status" data-form-status aria-live="polite"></p>
+          </form>
+
+          <div class="feedback-success" data-feedback-success hidden>
+            <span class="success-mark">✓</span><p class="eyebrow"><span></span>Feedback received</p><h2>Your private thread is ready.</h2>
+            <p>Save this link. It is the only way to view our reply; your email is never displayed publicly.</p>
+            <div class="ticket-box"><span>REFERENCE</span><strong data-feedback-reference></strong></div>
+            <button class="feedback-submit" type="button" data-copy-link><span>Copy private tracking link</span><b>⧉</b></button>
+            <button class="text-button" type="button" data-open-thread>Open conversation</button>
+          </div>
+        </div>
+
+        <div data-feedback-view="track" hidden>
+          <form class="lookup-form" data-lookup-form>
+            <label><span>Private feedback code or link</span><input name="token" required autocomplete="off" placeholder="Paste your code or tracking link" /></label>
+            <button class="feedback-submit" type="submit"><span>Open conversation</span><b>→</b></button>
+            <p class="form-status" data-lookup-status aria-live="polite"></p>
+          </form>
+          <article class="thread" data-feedback-thread hidden>
+            <header><div><p class="eyebrow"><span></span>Private conversation</p><h2 data-thread-reference></h2></div><span class="thread-status" data-thread-status></span></header>
+            <div class="message-list" data-message-list></div>
+            <form class="follow-up" data-follow-up-form><label><span>Add a follow-up</span><textarea name="message" minlength="2" maxlength="3000" required placeholder="Add more detail or answer our reply."></textarea></label><button class="feedback-submit" type="submit"><span>Send follow-up</span><b>↗</b></button><p class="form-status" data-follow-up-status aria-live="polite"></p></form>
+          </article>
+        </div>
+      </section>
+
+      <footer class="feedback-footer"><a href="/">← Back to Roadex</a><span>Private by design · Powered by Roadex</span></footer>
+    </main>
+  </body>
+</html>
