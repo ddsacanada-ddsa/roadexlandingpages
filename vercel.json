@@ -3,6 +3,7 @@
     { "source": "/battle/:id", "destination": "/battle.html" },
     { "source": "/delete-account", "destination": "/delete-account.html" },
     { "source": "/feedback", "destination": "/feedback.html" },
-    { "source": "/feedback-admin", "destination": "/feedback-admin.html" }
+    { "source": "/feedback-admin", "destination": "/feedback-admin.html" },
+    { "source": "/join-test", "destination": "/join-test.html" }
   ]
 }
