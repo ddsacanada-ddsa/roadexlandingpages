@@ -1,4 +1,15 @@
 {
+  "redirects": [
+    {
+      "source": "/",
+      "has": [
+        { "type": "query", "key": "invite", "value": "garage" },
+        { "type": "query", "key": "source", "value": "friend_invite" }
+      ],
+      "destination": "/Join-Team-Roadex",
+      "permanent": false
+    }
+  ],
   "rewrites": [
     { "source": "/battle/:id", "destination": "/battle.html" },
     { "source": "/delete-account", "destination": "/delete-account.html" },
