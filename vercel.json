@@ -4,6 +4,7 @@
     { "source": "/delete-account", "destination": "/delete-account.html" },
     { "source": "/feedback", "destination": "/feedback.html" },
     { "source": "/feedback-admin", "destination": "/feedback-admin.html" },
+    { "source": "/Join-Team-Roadex", "destination": "/join-test.html" },
     { "source": "/join-test", "destination": "/join-test.html" }
   ]
 }
